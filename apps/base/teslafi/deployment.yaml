@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teslafi-exporter
+spec:
+  minReadySeconds: 3
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 60
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: teslafi-exporter
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9998"
+      labels:
+        app: teslafi-exporter
+    spec:
+      containers:
+      - name: teslafi-exporter
+        image: ghcr.io/brianpham/teslafi-exporter:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http-metrics
+          containerPort: 9998
+          protocol: TCP
+        args: ["--teslafi_api_token", "$(TESLAFI_API_TOKEN)"]
+        env:
+        - name: TESLAFI_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: teslafi-api-token
+              key: TESLAFI_API_TOKEN
+        resources:
+          limits:
+            cpu: .3
+            memory: 100Mi
+          requests:
+            cpu: .2
+            memory: 50Mi

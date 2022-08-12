@@ -1,0 +1,952 @@
+
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 1,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 8,
+        "panels": [],
+        "title": "Nest Overview",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "0": {
+                    "color": "red",
+                    "index": 1,
+                    "text": "Offline"
+                  },
+                  "1": {
+                    "color": "green",
+                    "index": 0,
+                    "text": "Online"
+                  }
+                },
+                "type": "value"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 0
+                },
+                {
+                  "color": "green",
+                  "value": 1
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 1
+        },
+        "id": 2,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "9.0.7",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_up{app=\"pronestheus\"}",
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "Nest Status",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [
+              {
+                "options": {
+                  "0": {
+                    "color": "red",
+                    "index": 1,
+                    "text": "Offline"
+                  },
+                  "1": {
+                    "color": "green",
+                    "index": 0,
+                    "text": "Online"
+                  }
+                },
+                "type": "value"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 1
+        },
+        "id": 4,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "hidden",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_up",
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "Nest Uptime Overview",
+        "type": "timeseries"
+      },
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 9
+        },
+        "id": 10,
+        "panels": [],
+        "title": "Home Health ",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 10,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [
+              {
+                "options": {
+                  "from": 30,
+                  "result": {
+                    "color": "green",
+                    "index": 0
+                  },
+                  "to": 55
+                },
+                "type": "range"
+              },
+              {
+                "options": {
+                  "from": 0,
+                  "result": {
+                    "color": "red",
+                    "index": 1
+                  },
+                  "to": 29
+                },
+                "type": "range"
+              },
+              {
+                "options": {
+                  "from": 56,
+                  "result": {
+                    "color": "red",
+                    "index": 2
+                  },
+                  "to": 100
+                },
+                "type": "range"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 8,
+          "x": 0,
+          "y": 10
+        },
+        "id": 17,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "9.0.7",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_humidity_percent{id=\"enterprises/396702c9-d24c-437b-9319-c421801a120a/devices/AVPHwEsPykLOIuqpWD9fcesrLHxpMXQeA1lQotrN6KHe32IxcT5WvN2UkdMRSiWnBK2ZxG7ts-e94Ge2bqjVm10cTbiahw\"}",
+            "format": "time_series",
+            "legendFormat": "Upper Nest Thermostat",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_humidity_percent{id=\"enterprises/396702c9-d24c-437b-9319-c421801a120a/devices/AVPHwEsw1Z-l4HQ6RjHtIF3AXCM6w9ANVanBJidzsP4nAOAzqWuI7Xdn0ztbbFRu7OIw63AV6pGoSLvLVbRwCWXkAhpp4Q\"}",
+            "hide": false,
+            "legendFormat": "Lower Nest Thermostat",
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "title": "Humidity Levels",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [
+              {
+                "options": {
+                  "0": {
+                    "color": "green",
+                    "index": 0
+                  }
+                },
+                "type": "value"
+              },
+              {
+                "options": {
+                  "from": 0,
+                  "result": {
+                    "color": "green",
+                    "index": 1
+                  },
+                  "to": 100
+                },
+                "type": "range"
+              }
+            ],
+            "max": 1,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 8,
+          "x": 8,
+          "y": 10
+        },
+        "id": 16,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "9.0.7",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_heating{id=\"enterprises/396702c9-d24c-437b-9319-c421801a120a/devices/AVPHwEsPykLOIuqpWD9fcesrLHxpMXQeA1lQotrN6KHe32IxcT5WvN2UkdMRSiWnBK2ZxG7ts-e94Ge2bqjVm10cTbiahw\"}",
+            "legendFormat": "Upper Nest Thermostat",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_heating{id=\"enterprises/396702c9-d24c-437b-9319-c421801a120a/devices/AVPHwEsw1Z-l4HQ6RjHtIF3AXCM6w9ANVanBJidzsP4nAOAzqWuI7Xdn0ztbbFRu7OIw63AV6pGoSLvLVbRwCWXkAhpp4Q\"}",
+            "hide": false,
+            "legendFormat": "Lower Nest Thermostat",
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "title": "Heater / AC Overtime Usage",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [
+              {
+                "options": {
+                  "from": 68,
+                  "result": {
+                    "color": "green",
+                    "index": 0
+                  },
+                  "to": 78
+                },
+                "type": "range"
+              },
+              {
+                "options": {
+                  "from": 79,
+                  "result": {
+                    "color": "yellow",
+                    "index": 1
+                  },
+                  "to": 85
+                },
+                "type": "range"
+              }
+            ],
+            "max": 100,
+            "min": 60,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "fahrenheit"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 8,
+          "x": 16,
+          "y": 10
+        },
+        "id": 14,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_ambient_temperature_celsius{id=\"enterprises/396702c9-d24c-437b-9319-c421801a120a/devices/AVPHwEsPykLOIuqpWD9fcesrLHxpMXQeA1lQotrN6KHe32IxcT5WvN2UkdMRSiWnBK2ZxG7ts-e94Ge2bqjVm10cTbiahw\"} * 1.8 + 32",
+            "legendFormat": "Upper Nest Thermostat",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_ambient_temperature_celsius{id=\"enterprises/396702c9-d24c-437b-9319-c421801a120a/devices/AVPHwEsw1Z-l4HQ6RjHtIF3AXCM6w9ANVanBJidzsP4nAOAzqWuI7Xdn0ztbbFRu7OIw63AV6pGoSLvLVbRwCWXkAhpp4Q\"} * 1.8 + 32",
+            "hide": false,
+            "legendFormat": "Lower Nest Thermostat",
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "title": "Ambient Temperature (Fahrenheit)",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds",
+              "seriesBy": "max"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "from": 30,
+                  "result": {
+                    "color": "green",
+                    "index": 0,
+                    "text": "Normal Humdity"
+                  },
+                  "to": 55
+                },
+                "type": "range"
+              },
+              {
+                "options": {
+                  "from": 0,
+                  "result": {
+                    "color": "red",
+                    "index": 1,
+                    "text": "Too Little Humidity"
+                  },
+                  "to": 29
+                },
+                "type": "range"
+              },
+              {
+                "options": {
+                  "from": 56,
+                  "result": {
+                    "color": "red",
+                    "index": 2,
+                    "text": "Too High Humidity"
+                  },
+                  "to": 100
+                },
+                "type": "range"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 60
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 8,
+          "x": 0,
+          "y": 17
+        },
+        "id": 6,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "9.0.7",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_humidity_percent{id=\"enterprises/396702c9-d24c-437b-9319-c421801a120a/devices/AVPHwEsPykLOIuqpWD9fcesrLHxpMXQeA1lQotrN6KHe32IxcT5WvN2UkdMRSiWnBK2ZxG7ts-e94Ge2bqjVm10cTbiahw\"}",
+            "format": "time_series",
+            "legendFormat": "Upper Nest Thermostat",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_humidity_percent{id=\"enterprises/396702c9-d24c-437b-9319-c421801a120a/devices/AVPHwEsw1Z-l4HQ6RjHtIF3AXCM6w9ANVanBJidzsP4nAOAzqWuI7Xdn0ztbbFRu7OIw63AV6pGoSLvLVbRwCWXkAhpp4Q\"}",
+            "hide": false,
+            "legendFormat": "Lower Nest Thermostat",
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "title": "Humidity Levels",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "0": {
+                    "index": 0,
+                    "text": "Off"
+                  }
+                },
+                "type": "value"
+              },
+              {
+                "options": {
+                  "from": 0,
+                  "result": {
+                    "index": 1,
+                    "text": "On"
+                  },
+                  "to": 100
+                },
+                "type": "range"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 8,
+          "x": 8,
+          "y": 17
+        },
+        "id": 12,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "9.0.7",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_heating{id=\"enterprises/396702c9-d24c-437b-9319-c421801a120a/devices/AVPHwEsPykLOIuqpWD9fcesrLHxpMXQeA1lQotrN6KHe32IxcT5WvN2UkdMRSiWnBK2ZxG7ts-e94Ge2bqjVm10cTbiahw\"}",
+            "legendFormat": "Upper Nest Thermostat",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_heating{id=\"enterprises/396702c9-d24c-437b-9319-c421801a120a/devices/AVPHwEsw1Z-l4HQ6RjHtIF3AXCM6w9ANVanBJidzsP4nAOAzqWuI7Xdn0ztbbFRu7OIw63AV6pGoSLvLVbRwCWXkAhpp4Q\"}",
+            "hide": false,
+            "legendFormat": "Lower Nest Thermostat",
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "title": "Heater / AC Status",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "from": 68,
+                  "result": {
+                    "color": "green",
+                    "index": 0
+                  },
+                  "to": 78
+                },
+                "type": "range"
+              },
+              {
+                "options": {
+                  "from": 79,
+                  "result": {
+                    "color": "yellow",
+                    "index": 1
+                  },
+                  "to": 85
+                },
+                "type": "range"
+              }
+            ],
+            "max": 100,
+            "min": 60,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "fahrenheit"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 8,
+          "x": 16,
+          "y": 17
+        },
+        "id": 15,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "9.0.7",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_ambient_temperature_celsius{id=\"enterprises/396702c9-d24c-437b-9319-c421801a120a/devices/AVPHwEsPykLOIuqpWD9fcesrLHxpMXQeA1lQotrN6KHe32IxcT5WvN2UkdMRSiWnBK2ZxG7ts-e94Ge2bqjVm10cTbiahw\"} * 1.8 + 32",
+            "legendFormat": "Upper Nest Thermostat",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
+            },
+            "editorMode": "builder",
+            "expr": "nest_ambient_temperature_celsius{id=\"enterprises/396702c9-d24c-437b-9319-c421801a120a/devices/AVPHwEsw1Z-l4HQ6RjHtIF3AXCM6w9ANVanBJidzsP4nAOAzqWuI7Xdn0ztbbFRu7OIw63AV6pGoSLvLVbRwCWXkAhpp4Q\"} * 1.8 + 32",
+            "hide": false,
+            "legendFormat": "Lower Nest Thermostat",
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "title": "Ambient Temperature (Fahrenheit)",
+        "type": "gauge"
+      }
+    ],
+    "schemaVersion": 36,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-5m",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Llano Nest Thermostat",
+    "uid": "vbiNPDi4z",
+    "version": 4,
+    "weekStart": ""
+  }

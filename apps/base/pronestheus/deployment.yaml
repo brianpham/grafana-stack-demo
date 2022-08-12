@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pronestheus
+spec:
+  minReadySeconds: 3
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 60
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: pronestheus
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9777"
+      labels:
+        app: pronestheus
+    spec:
+      containers:
+      - name: pronestheus
+        image: grdl/pronestheus:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http-metrics
+          containerPort: 9777
+          protocol: TCP
+        env:
+        - name: PRONESTHEUS_NEST_REFRESH_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: pronestheus-secrets
+              key: PRONESTHEUS_NEST_REFRESH_TOKEN
+        - name: PRONESTHEUS_NEST_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: pronestheus-secrets
+              key: PRONESTHEUS_NEST_CLIENT_ID
+        - name: PRONESTHEUS_NEST_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: pronestheus-secrets
+              key: PRONESTHEUS_NEST_CLIENT_SECRET
+        - name: PRONESTHEUS_NEST_PROJECT_ID
+          valueFrom:
+            secretKeyRef:
+              name: pronestheus-secrets
+              key: PRONESTHEUS_NEST_PROJECT_ID
+        resources:
+          limits:
+            cpu: .3
+            memory: 100Mi
+          requests:
+            cpu: .2
+            memory: 50Mi
