@@ -2,9 +2,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../base/prometheus
-  - ../base/grafana
+  - ../base/argo-cd
+#  - ../base/prometheus
+#  - ../base/grafana
+  - ../base/log-spammer
   - ../base/podinfo
-  - ../base/loki
-  - ../base/pronestheus
-  - ../base/teslafi
+  - ../base/trace-spammer
+  - ../base/sealed-secrets
+#  - ../base/loki
+#  - ../base/pronestheus
+  - ../base/redis
+#  - ../base/teslafi
